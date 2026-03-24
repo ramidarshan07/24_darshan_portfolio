@@ -1,0 +1,344 @@
+.loading-screen-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--dark-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.terminal-container {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logs {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  min-height: 420px;
+  height: auto;
+  text-shadow: 0 0 5px var(--glow-color);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-line {
+  margin-bottom: 5px;
+  color: red;
+  animation: fadeIn 0.1s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.gold-box {
+  position: relative;
+  border: 2px solid rgba(255, 204, 0, 0.5);
+  padding: 1.5rem;
+  background-color: rgba(255, 204, 0, 0.05);
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  animation: goldBoxFadeIn 0.5s ease-out forwards;
+  width: 100%;
+}
+
+@keyframes goldBoxFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gold-box .corner {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+}
+
+.gold-box .top-left {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid var(--os-gold);
+  border-left: 2px solid var(--os-gold);
+}
+
+.gold-box .top-right {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid var(--os-gold);
+  border-right: 2px solid var(--os-gold);
+}
+
+.gold-box .bottom-left {
+  bottom: -2px;
+  left: -2px;
+  border-bottom: 2px solid var(--os-gold);
+  border-left: 2px solid var(--os-gold);
+}
+
+.gold-box .bottom-right {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 2px solid var(--os-gold);
+  border-right: 2px solid var(--os-gold);
+}
+
+.gold-box-content {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--os-gold);
+}
+
+.gold-box-content .bracket {
+  opacity: 0.5;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.5s infinite;
+  margin-left: 5px;
+  color: var(--terminal-green);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.progress-bar-container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--terminal-green);
+  box-shadow: 0 0 10px var(--terminal-green);
+  transition: width 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.progress-text {
+  color: var(--terminal-green);
+  text-align: center;
+  font-size: 1rem;
+  font-family: 'VT323', monospace;
+  text-shadow: 0 0 5px var(--glow-color);
+}
+
+
+.welcome-dialog {
+  width: 90%;
+  max-width: 600px;
+  background-color: rgb(0, 0, 0);
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  border: 4px double var(--os-gold);
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 12px 12px 0px rgb(0, 0, 0);
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  animation: dialogFadeIn 1.5s ease-out;
+}
+
+@keyframes dialogFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.main-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.8rem;
+  color: var(--os-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 20px var(--os-gold-glow);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: var(--os-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.description {
+  font-size: 0.8rem;
+  color: var(--os-gold);
+  opacity: 0.8;
+  margin-bottom: 3.5rem;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.cta-btn {
+  width: 80%;
+  padding: 15px 30px;
+  background: transparent;
+  border: 2px solid var(--os-gold);
+  color: var(--os-gold);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn .btn-icon {
+    font-size: 1.2rem;
+}
+
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 204, 0, 0.2), 
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 5px 15px var(--os-gold-glow);
+  background-color: rgba(255, 204, 0, 0.05);
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: var(--terminal-green);
+  text-shadow: 0 0 7px #ffd000;
+  opacity: 0.6;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .terminal-container {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .main-title {
+    font-size: 3.5rem;
+    letter-spacing: 0.4rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .logs {
+    font-size: 0.75rem;
+    min-height: 350px;
+    height: auto;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .log-line {
+    margin-bottom: 3px;
+  }
+
+  .gold-box {
+    padding: 1rem;
+    margin: 15px 0;
+  }
+
+  .gold-box-content {
+    font-size: 0.85rem;
+    gap: 0.4rem;
+  }
+
+  .progress-text {
+    font-size: 0.85rem;
+  }
+
+  .welcome-dialog {
+    width: 92%;
+    padding: 40px 15px;
+    border-width: 2px;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0 10px;
+  }
+
+  .cta-btn {
+    width: 90%;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .footer-note {
+    font-size: 0.7rem;
+  }
+}
